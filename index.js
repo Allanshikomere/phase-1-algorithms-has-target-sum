@@ -1,5 +1,17 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  if (array.length < 2) {
+    return false;
+}
+const seen = new Set();
+    for (const num of array) {
+        const complement = target - num;
+        if (seen.has(complement)) {
+            return true; 
+        }
+        seen.add(num);
+    }
+    return false;
 }
 
 /* 
@@ -8,6 +20,12 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  Check if there are at least two elements in the array
+  Create a set to store seen values
+  Iterate through the array
+  Check if the complement is in the set
+  Add the current number to the set
+
 */
 
 /*
